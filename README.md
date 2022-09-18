@@ -2,7 +2,7 @@
 
 # Guía de contribución
 
-Se seguirán las siguientes guías para agregar commits
+Se seguirán las siguientes guías para agregar commits. Además, se sguirá el git flow para administrar los cambios. Para entender este método de trabajo vea esta [guía rápida](https://www.youtube.com/watch?v=1SXpE08hvGs).
 
 ## Convenciones de formato para commits
 
