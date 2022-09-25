@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Single Page</title>
+        <script>
+
+            //  This function communicates with django (backend)
+
+            function showSection(section) {
+                fetch(`/sections/${section}`)
+                .then(response => response.text())
+                .then(text => {
+                    console.log(text);
+                    document.querySelector('#content').innerHTML = text;
+                });
+
+            }
+            function abrirtop5() {
+                window.open('admintop5clubes.html');
+           }
+           function abrirbottom5() {
+                window.open('adminbottom3clubes.html');
+           }
+           function abrirclubxcategoria() {
+                window.open('adminclubxcategoria.html');
+           }
+           function abrirtop3estudiantes() {
+                window.open('admintop3students.html');
+           }
+
+        </script>
+    </head>
+    <body>
+        <h1>Bienvenido profesor! seleccione que desea revisar:</h1>
+        <button onclick="abrirtop5()">Top 5 clubes</button>
+        <button onclick="abrirclubxcategoria()">Clubes por categoria</button>
+        <button onclick="abrirbottom5()">Bottom 5 clubes</button>
+        <button onclick="abrirtop3estudiantes()">Top 3 estudiantes</button>
+
+        <!-- Contents loaded from server is inserted here by javascript -->
+        <div id="content">
+
+        </div>
+
+    </body>
+</html>
