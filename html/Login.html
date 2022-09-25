@@ -15,15 +15,12 @@
                 });
 
             }
-
-
-            document.addEventListener("DOMContentLoaded", function() {
-                document.querySelectorAll('button').forEach(button => {
-                    button.onclick = function() {
-                        showSection(this.dataset.section)
-                    }
-                })
-            });
+            function abrirAdmin() {
+                window.open('adminhome.html');
+           }
+           function abrirRegistro() {
+                window.open('RegistrarEstudiante.html');
+           }
 
 
         </script>
@@ -45,12 +42,14 @@
            </form>
 
            <p class="button">
-            <button type="submit"></button>
+            <button type="submit">Login como estudiante</button>
+            <button onclick="abrirAdmin()">Login como Administrador</button>
+            <button onclick="abrirRegistro()">Registrarse</button>
            </p>
 
         <!-- Contents loaded from server is inserted here by javascript -->
         <div id="content">
-
+        
         </div>
 
     </body>
