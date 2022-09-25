@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <script>
+
+            //  This function communicates with django (backend)
+
+            function showSection(section) {
+                fetch(`/sections/${section}`)
+                .then(response => response.text())
+                .then(text => {
+                    console.log(text);
+                    document.querySelector('#content').innerHTML = text;
+                });
+
+            }
+
+
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelectorAll('button').forEach(button => {
+                    button.onclick = function() {
+                        showSection(this.dataset.section)
+                    }
+                })
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Registrar Estudiante</h1>
+        <form action="/my-handling-form-page" method="post">
+            <ul>
+             <li>
+               <label for="name">Nombre:</label>
+               <input type="text" id="full_name" name="full_name">
+             </li>
+            </br>
+             <li>
+                <label for="name">Seccion:</label>
+                <input type="text" id="section" name="section">
+              </li>
+            </br>
+             <li>
+               <label for="mail">Nombre de usuario:</label>
+               <input type="text" id="user_name" name="user_name">
+             </li>
+            </br>
+             <li>
+                <label for="mail">Password:</label>
+               <input type="password" id="password" name="password">
+             </li>
+            </br>
+            </ul>
+           </form>
+
+           <p class="button">
+            <button type="submit"></button>
+           </p>
+
+        <!-- Contents loaded from server is inserted here by javascript -->
+        <div id="content">
+
+        </div>
+
+    </body>
+</html>
