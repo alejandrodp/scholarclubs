@@ -74,12 +74,15 @@ WSGI_APPLICATION = 'scholarclubs.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'default': {
+            'ENGINE': 'djongo',
+            'NAME': 'scholarclubs',
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': 'mongodb://localhost:27020,localhost:27019/?serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4'
+            }
+        }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
