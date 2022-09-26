@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Clubes mas solicitados</h2>
+
+<table id="tID"></table>
+    <script>
+        function obtenerCategoria(tableID){
+            const objeto1=['{"nombre":"Tiro con arco","categoria":"Deportes","cantidad":23}','{"nombre":"Frances","categoria":"Lenguas","cantidad":20}','{"nombre":"Español","categoria":"Lenguas","cantidad":16}','{"nombre":"Danza","categoria":"Arte","cantidad":15}','{"nombre":"DnD","categoria":"Otros","cantidad":14}']
+            for(var i = 0; i < objeto1.length; i++){
+                const objetoanalizado1=JSON.parse(objeto1[i])
+                let tableRef = document.getElementById(tableID);
+                let newRow = tableRef.insertRow(-1);
+                let newCell = newRow.insertCell(0);
+                let newText= document.createTextNode("Nombre del club:"+objetoanalizado1.nombre+" | "+"categoria:"+objetoanalizado1.categoria+" | "+"Cantidad de veces sugeridos:"+objetoanalizado1.cantidad);
+                newCell.appendChild(newText);
+            }
+        }
+        obtenerCategoria("tID");
+    </script>
+</html>

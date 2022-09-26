@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h2>Estudiantes que han hecho mas solicitudes</h2>
+
+<table id="tID"></table>
+    <script>
+        function obtenerCategoria(tableID){
+            const objeto1=['{"nombre":"Giancarlo","cantidad":23}','{"nombre":"Juan jose","cantidad":20}','{"nombre":"Alejandro","cantidad":16}']
+            for(var i = 0; i < objeto1.length; i++){
+                const objetoanalizado1=JSON.parse(objeto1[i])
+                let tableRef = document.getElementById(tableID);
+                let newRow = tableRef.insertRow(-1);
+                let newCell = newRow.insertCell(0);
+                let newText= document.createTextNode("Nombre del Estudiantes:"+objetoanalizado1.nombre+" | "+"Cantidad de clubes sugeridos:"+objetoanalizado1.cantidad);
+                newCell.appendChild(newText);
+            }
+        }
+        obtenerCategoria("tID");
+    </script>
+</html>

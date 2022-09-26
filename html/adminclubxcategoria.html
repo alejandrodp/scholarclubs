@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<script>
+
+    //  This function communicates with django (backend)
+
+    function showSection(section) {
+        fetch(`/sections/${section}`)
+        .then(response => response.text())
+        .then(text => {
+            console.log(text);
+            document.querySelector('#content').innerHTML = text;
+        });
+
+    }
+
+</script>
+</head>
+<body>
+<h2>Cantidad de clubes por categoria</h2>
+<table id="tID"></table>
+    <script>
+        function obtenerCategoria(tableID){
+            const objeto1=['{"categoria":"Deportes","cantidad":23}','{"categoria":"Arte","cantidad":23}']
+            for(var i = 0; i < objeto1.length; i++){
+                const objetoanalizado1=JSON.parse(objeto1[i])
+                let tableRef = document.getElementById(tableID);
+                let newRow = tableRef.insertRow(-1);
+                let newCell = newRow.insertCell(0);
+                let newText= document.createTextNode("Categoria:"+objetoanalizado1.categoria+" | "+"Cantidad de interesados:"+objetoanalizado1.cantidad);
+                newCell.appendChild(newText);
+            }
+        }
+        obtenerCategoria("tID");
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <script>
+
+            function abrirAdmin() {
+                window.open('adminhome.html');
+           }
+           function abrirRegistro() {
+                window.open('RegistrarEstudiante.html');
+           }
+           function loginEstudiante() {
+                console.log(-1);
+           }
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <form action="/my-handling-form-page" method="post">
+            <ul>
+             <li>
+               <label for="mail">Nombre de usuario:</label>
+               <input type="text" id="user_name" name="user_name">
+             </li>
+            </br>
+             <li>
+                <label for="mail">Password:</label>
+               <input type="password" id="password" name="password">
+             </li>
+            </ul>
+           </form>
+
+           <p class="button">
+            <button onclick="loginEstudiante()">Login como estudiante</button>
+            <button onclick="abrirAdmin()">Login como Administrador</button>
+            <button onclick="abrirRegistro()">Registrarse</button>
+           </p>
+
+        <!-- Contents loaded from server is inserted here by javascript -->
+        <div id="content">
+        
+        </div>
+
+    </body>
+</html>
