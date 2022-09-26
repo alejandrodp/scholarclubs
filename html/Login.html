@@ -4,22 +4,14 @@
         <title>Login</title>
         <script>
 
-            //  This function communicates with django (backend)
-
-            function showSection(section) {
-                fetch(`/sections/${section}`)
-                .then(response => response.text())
-                .then(text => {
-                    console.log(text);
-                    document.querySelector('#content').innerHTML = text;
-                });
-
-            }
             function abrirAdmin() {
                 window.open('adminhome.html');
            }
            function abrirRegistro() {
                 window.open('RegistrarEstudiante.html');
+           }
+           function loginEstudiante() {
+                console.log(-1);
            }
 
 
@@ -42,7 +34,7 @@
            </form>
 
            <p class="button">
-            <button type="submit">Login como estudiante</button>
+            <button onclick="loginEstudiante()">Login como estudiante</button>
             <button onclick="abrirAdmin()">Login como Administrador</button>
             <button onclick="abrirRegistro()">Registrarse</button>
            </p>
