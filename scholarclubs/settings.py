@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9hd7+$&47z(%d552+sf7wa5zsy(86di-eb6y+4!bx-2cz#mjsp'
+SECRET_KEY = 'y!kn)bb(^p&dt!bn9t%inpk1*vm_-7n))&f!56=g$f0svj+-_j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'scholarclubs.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'html'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,7 @@ DATABASES = {
             'NAME': 'scholarclubs',
             'ENFORCE_SCHEMA': False,
             'CLIENT': {
-                'host': 'mongodb://localhost:27020,localhost:27019/?serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4'
+                'host': 'mongodb://localhost:27020,localhost:27019/?serverSelectionTimeoutMS=2000'
             }
         }
 }
@@ -126,3 +126,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
