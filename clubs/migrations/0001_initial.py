@@ -10,18 +10,17 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('clubs', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='StudentProfile',
+            name='Club',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('section', models.TextField(blank=True, null=True)),
-                ('interested_clubs', models.ManyToManyField(to='clubs.club')),
-                ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('name', models.CharField(max_length=100, unique=True)),
+                ('tag', models.PositiveSmallIntegerField(choices=[(0, 'Idiomas'), (1, 'Artes'), (2, 'Deportes'), (3, 'Música'), (4, 'Otros')])),
+                ('student', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]

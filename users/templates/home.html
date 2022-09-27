@@ -7,10 +7,13 @@
             This is Scholar Clubs a website for students to suggest new student clubs for creation and show interest on it.
         </p>
         <hr class="my-4">
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Logout</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Sign in</a>
+
+        {% if user.is_authenticated %}
+            <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'new-club' %}" role="button">New club</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'select-clubs' %}" role="button">Select clubs of interest</a>
         </p>
+        {% endif %}
     </div>
 
 {% endblock content %}

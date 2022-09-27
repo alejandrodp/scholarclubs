@@ -79,7 +79,7 @@ DATABASES = {
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'scholarclubs',
-            'ENFORCE_SCHEMA': False,
+            'ENFORCE_SCHEMA': True,
             'CLIENT': {
                 'host': 'mongodb://localhost:27020,localhost:27019/?serverSelectionTimeoutMS=2000'
             }

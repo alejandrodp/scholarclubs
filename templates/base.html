@@ -28,6 +28,7 @@
                 <div class="navbar-nav ml-auto">
                     {#  Páginas stuff here              #}
                   {% if user.is_authenticated %}
+                    <p class="nav-item nav-link">Hi {{ user.get_username }}</p>
                     <a href="{% url 'users-profile' %}" class="nav-item nav-link">Profile</a>
                     <a href="{% url 'logout' %}" class="nav-item nav-link">Logout</a>
                   {% else %}
