@@ -1,11 +1,13 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
+from django.db.models import Count
 from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.views import View
 
+from clubs.models import Club
 from .forms import StudentSignupForm, LoginForm, UpdateStudentProfileForm
 from .models import StudentProfile
 
@@ -75,3 +77,19 @@ def student_profile(request):
 
     return render(request, 'students/profile.html', {'profile_form': profile_form})
 
+
+@login_required
+def admin_statistics(request):
+    clubs = Club.objects.order_by('tag').values('tag').annotate(amount=Count('tag'))
+
+    for c in clubs:
+        c['tag'] = Club.TAG_CHOICES[c['tag']][1]
+
+    student3 = StudentProfile.objects.values('user__username').annotate(amount=Count('interested_clubs')).order_by('-amount')[:3]
+
+    print(student3)
+
+
+
+
+    return render(request, 'statistics.html', {'clubs': clubs, 'student3': student3})

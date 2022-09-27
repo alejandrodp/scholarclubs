@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %} Select club {% endblock title%}
+{% block content %}
+    <div class="form-content my-3 p-3">
+        <div class="container">
+            <div class="row justify-content-center">
+            <h3 class="font-weight-light my-4 text-center">Total amount of clubs</h3>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th>Club category</th>
+                        <th>Amount of suggestions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for elm in clubs %}
+                      <tr>
+                        <td>{{ elm.tag }}</td>
+                        <td>{{ elm.amount }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+            <h3 class="font-weight-light my-4 text-center">Top 3 students with most clubs suggested</h3>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th>Student name</th>
+                        <th>Amount of suggestions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for elm in student3 %}
+                      <tr>
+                        <td>{{ elm.user__username }}</td>
+                        <td>{{ elm.amount }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+            <h3 class="font-weight-light my-4 text-center">Total amount of clubs</h3>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th>Club category</th>
+                        <th>Amount of suggestions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for elm in clubs %}
+                      <tr>
+                        <td>{{ elm.tag }}</td>
+                        <td>{{ elm.amount }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+
+            <h3 class="font-weight-light my-4 text-center">Total amount of clubs</h3>
+                <table class="table table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th>Club category</th>
+                        <th>Amount of suggestions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for elm in clubs %}
+                      <tr>
+                        <td>{{ elm.tag }}</td>
+                        <td>{{ elm.amount }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
