@@ -85,11 +85,9 @@ def admin_statistics(request):
     for c in clubs:
         c['tag'] = Club.TAG_CHOICES[c['tag']][1]
 
-    student3 = StudentProfile.objects.values('user__username').annotate(amount=Count('interested_clubs')).order_by('-amount')[:3]
+    student3 = StudentProfile.objects.values('user__username', 'interested_clubs__tag').annotate(amount=Count('interested_clubs')).order_by('-amount')[:3]
 
-    print(student3)
+    clubs5 = Club.objects.values('name').annotate(amount=Count('studentprofile')).order_by('-amount')
+    clubs3 = Club.objects.values('name').annotate(amount=Count('studentprofile')).order_by('amount')
 
-
-
-
-    return render(request, 'statistics.html', {'clubs': clubs, 'student3': student3})
+    return render(request, 'statistics.html', {'clubs': clubs, 'student3': student3, 'clubs5': clubs5[:5], 'clubs3': clubs3[:3]})

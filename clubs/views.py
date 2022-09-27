@@ -44,7 +44,9 @@ def select_clubs(request):
         if club_form.is_valid():
             clubs = club_form.cleaned_data['clubs']
 
-            print(clubs)
+            user.studentprofile.interested_clubs.set(clubs)
+
+            user.studentprofile.save()
 
             return redirect(to='/')
 
