@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView
 from django.db.models import Count
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib.admin.views.decorators import staff_member_required
 
 from clubs.models import Club
 from .forms import StudentSignupForm, LoginForm, UpdateStudentProfileForm
@@ -79,6 +80,7 @@ def student_profile(request):
 
 
 @login_required
+@staff_member_required
 def admin_statistics(request):
     clubs = Club.objects.order_by('tag').values('tag').annotate(amount=Count('tag'))
 
